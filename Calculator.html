@@ -1,0 +1,185 @@
+<html>
+<head>
+   <title>
+       Calculator
+   </title> 
+<style>
+body{
+  background-color: black;
+}
+.row{
+border: 0.1vw black solid;
+border-radius: 2vw;
+background-color: black;  
+text-align: center;
+margin: 4vw 25vh;
+
+box-shadow: 0.1vw 0.1vh 1vw 0.6vh green;
+width: 65vw;
+
+
+
+}
+h1{
+  
+  font-size: 5vw;
+  text-align: center;
+  text-shadow: 0.2vw 0.2vw 0.5vw rgb(24, 100, 29);
+  
+}
+
+
+
+ul li{
+  list-style-type: none;
+  
+}
+ul li button{
+  border: 0.1vw black solid;
+  border-radius: 3vw;
+  font-size: 2vw;
+  /* background-color: green; */
+  background: linear-gradient(white, orange);
+  padding: 2vw 2vw;
+  margin: 0.4vw 0.4vw 0.4vw 0.4vw;
+  box-shadow: 0.06vw 0.04vh 1vw 0.3vh orange;
+  
+}
+.screen input{
+  border: 0.1vw black solid;
+  border-radius: 3vw;
+  font-size: 4vw;
+  font-family:'Lobster', cursive;
+  background: linear-gradient(white, orange);
+  padding: 2vw 2vw;
+  margin: 0.4vw 0.4vw 0.4vw 0.4vw;
+  box-shadow: 0.06vw 0.04vh 1vw 0.3vh orange;
+  width: 45vw;
+  height: 16vh;
+  
+}
+.screen {
+ 
+  padding:2vw 4vh ;
+
+} 
+ul li button:hover{
+  background-color:  orange;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+      <h1>Web Calculator</h1>
+      <div class="row">
+        <ul>
+            <li class="screen">
+                <input type="text" name="screen" id="screen">
+            </li>
+          <li>
+              <button class="button">AC</button>
+              <button class="button">c</button>
+              <button class="button">(</button>
+              <button class="button">)</button>
+              
+              
+          </li>
+        <li>
+          <button class="button">7</button>
+          <button class="button">8</button>
+          <button class="button">9</button>
+          <button class="button">*</button>
+          
+        </li>
+        <li>
+          <button class="button">4</button>
+          <button class="button">5</button>
+          <button class="button">6</button>
+          <button class="button">/</button>
+          
+        </li> 
+        <li>
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button">+</button>
+            
+          </li>
+          <li>
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">=</button>
+            <button class="button">-</button>
+            
+          </li>
+        </ul>
+      </div>
+
+
+
+    </div>
+   
+</body>
+<script>
+     let string="";
+     let buttons=document.querySelectorAll('.button');
+     let screenVaule= document.querySelector('input');
+   
+    
+     
+     Array.from(buttons).forEach((button)=>{
+       button.addEventListener('click',(e)=>{
+     
+         if(e.target.innerHTML=="="){
+           string=eval(string);
+           screenVaule.value=string;
+          
+
+         }
+        else if(e.target.innerHTML=="AC"){
+           
+          string ="";
+          screenVaule.value=string;
+
+
+         }
+         else if(e.target.innerHTML=="c"){
+
+          
+          string=string.substr(0,string.length-1);
+          screenVaule.value=string;
+        
+
+
+         }
+        
+        //  else if(e.target.innerHTML=="sqrt"){
+        //    string=Math.sqrt(string);
+        //    screenVaule.value=string;
+
+
+        //  }
+        else {
+           string +=e.target.innerHTML;
+           screenVaule.value=string;
+          
+          
+           
+
+         }
+        
+       
+
+        
+         
+
+
+       })
+
+     })
+</script>
+
+</html>
